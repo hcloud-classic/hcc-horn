@@ -64,6 +64,9 @@ func ChangePassword() error {
 
 func GetEncryptPassword() ([]byte, error) {
 	pubKeyData, err := ioutil.ReadFile(config.Rsakey.PublicKeyFile)
+	if err != nil {
+		return nil, err
+	}
 
 	pubKey, err := rsautil.BytesToPublicKey(pubKeyData)
 	if err != nil {

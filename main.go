@@ -76,6 +76,12 @@ func init() {
 
 	config.Init()
 
+	err = rsautil.CheckKeyFiles()
+	if err != nil {
+		_ = pid.DeleteHornPID()
+		panic(err)
+	}
+
 	logger.Logger.Println("Changing mysqld password...")
 	err = mysqlUtil.ChangePassword()
 	if err != nil {
