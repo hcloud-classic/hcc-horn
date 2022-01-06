@@ -44,11 +44,6 @@ func ChangePassword() error {
 		return err
 	}
 
-	err = killMYSQLDSafe()
-	if err != nil {
-		return err
-	}
-
 	err = stopMySQLDSafe()
 	if err != nil {
 		return err
