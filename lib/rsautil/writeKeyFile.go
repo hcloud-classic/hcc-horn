@@ -3,7 +3,7 @@ package rsautil
 import "io/ioutil"
 
 func WritePrivateAndPublicKeys() error {
-	privKey, pubKey, err := GenerateKeyPair(2048)
+	privKey, pubKey, err := GenerateKeyPair(4096)
 	if err != nil {
 		return err
 	}
