@@ -1,0 +1,10 @@
+/horn
+coverage.out
+goreport_grade
+.idea/
+.vscode/
+/vendor
+/_venodr-*
+nohup.out
+privkey.rsa
+pubkey.rsa.pub
