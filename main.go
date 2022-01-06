@@ -10,6 +10,7 @@ import (
 	"hcc/horn/lib/pid"
 	"hcc/horn/lib/rsautil"
 	"hcc/horn/lib/syscheck"
+	"io/ioutil"
 	"os"
 	"os/signal"
 	"strconv"
@@ -76,7 +77,7 @@ func init() {
 
 	config.Init()
 
-	err = rsautil.CheckKeyFiles()
+	_, err = ioutil.ReadFile(config.Rsakey.PublicKeyFile)
 	if err != nil {
 		_ = pid.DeleteHornPID()
 		panic(err)

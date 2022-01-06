@@ -15,11 +15,6 @@ func parseRsakey() {
 		logger.Logger.Panicln("no rsakey section")
 	}
 
-	Rsakey.PrivateKeyFile, err = config.RsakeyConfig.String("private_key_file")
-	if err != nil {
-		logger.Logger.Panicln(err)
-	}
-
 	Rsakey.PublicKeyFile, err = config.RsakeyConfig.String("public_key_file")
 	if err != nil {
 		logger.Logger.Panicln(err)
