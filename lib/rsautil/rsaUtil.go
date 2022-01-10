@@ -45,19 +45,6 @@ func PublicKeyToBytes(pub *rsa.PublicKey) ([]byte, error) {
 	return pubBytes, nil
 }
 
-// BytesToPrivateKey bytes to private key
-func BytesToPrivateKey(priv []byte) (*rsa.PrivateKey, error) {
-	block, _ := pem.Decode(priv)
-	b := block.Bytes
-	var err error
-	key, err := x509.ParsePKCS1PrivateKey(b)
-	if err != nil {
-		return nil, err
-	}
-
-	return key, nil
-}
-
 // BytesToPublicKey bytes to public key
 func BytesToPublicKey(pub []byte) (*rsa.PublicKey, error) {
 	block, _ := pem.Decode(pub)
@@ -84,14 +71,4 @@ func EncryptWithPublicKey(msg []byte, pub *rsa.PublicKey) ([]byte, error) {
 	}
 
 	return ciphertext, nil
-}
-
-// DecryptWithPrivateKey decrypts data with private key
-func DecryptWithPrivateKey(ciphertext []byte, priv *rsa.PrivateKey) ([]byte, error) {
-	hash := sha512.New()
-	plaintext, err := rsa.DecryptOAEP(hash, rand.Reader, priv, ciphertext, nil)
-	if err != nil {
-		return nil, err
-	}
-	return plaintext, nil
 }
