@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/Terry-Mao/goconf v0.0.0-20161115082538-13cb73d70c44
 	github.com/sethvargo/go-password v0.2.0
-	google.golang.org/grpc v1.43.0
+	google.golang.org/grpc v1.44.0
 	innogrid.com/hcloud-classic/pb v0.0.0-00010101000000-000000000000
 )
 
